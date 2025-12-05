@@ -1,6 +1,6 @@
 # Nixon See Kok Wai - Portfolio
 
-A modern, futuristic portfolio website showcasing projects and technical expertise.
+A minimalist, modern portfolio website with a bold black and white design showcasing projects and technical expertise.
 
 ## 🚀 Tech Stack
 
@@ -10,17 +10,20 @@ A modern, futuristic portfolio website showcasing projects and technical experti
 - **Tailwind CSS** - Utility-first styling
 - **Framer Motion** - Smooth animations
 - **React Router** - Client-side routing
-- **Lucide React** - Beautiful icons
+- **Lucide React** - Icon library
 
 ## 📁 Project Structure
 
 ```
 my-portfolio/
 ├── public/              # Static assets
+│   └── hero-name.png    # Hero section image
 ├── src/
 │   ├── components/      # Reusable components
-│   │   ├── sections/    # Page sections (Hero, Skills, Projects)
-│   │   ├── AnimatedBackground.tsx
+│   │   ├── sections/    # Page sections
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── SkillsSection.tsx
+│   │   │   └── ProjectsSection.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Logo.tsx
 │   │   ├── Navbar.tsx
@@ -28,12 +31,13 @@ my-portfolio/
 │   │   └── SkillsGrid.tsx
 │   ├── pages/          # Route pages
 │   │   ├── About.tsx
+│   │   ├── Blog.tsx
+│   │   ├── BlogPost.tsx
 │   │   └── Home.tsx
 │   ├── lib/            # Utility functions
-│   ├── styles/         # Global styles
 │   ├── App.tsx         # Main app component
 │   ├── main.tsx        # Entry point
-│   └── index.css       # Global CSS
+│   └── index.css       # Global CSS with grid pattern
 ├── index.html
 ├── package.json
 ├── tailwind.config.js
@@ -41,15 +45,15 @@ my-portfolio/
 └── vite.config.ts
 ```
 
-## 🎨 Features
+## 🎨 Design Features
 
-- ✨ Futuristic design with glassmorphism effects
-- 🎭 Smooth parallax scrolling animations
-- 💫 Interactive particle backgrounds
-- 🌈 Holographic overlays on hover
-- ⚡ Lightning-fast performance with Vite
-- 📱 Fully responsive design
-- 🎯 SEO optimized
+- ✨ **Minimal Black & White Aesthetic** - Bold, clean design with high contrast
+- 🎯 **Grid Background** - Half-transparent grid pattern for visual depth
+- 💫 **Interactive Cards** - Hover effects that invert colors (white → black)
+- 🖼️ **Image-based Hero** - Typography as visual centerpiece
+- ⚡ **Fast Performance** - Optimized with Vite
+- 📱 **Fully Responsive** - Mobile-first design approach
+- 🎭 **Smooth Animations** - Framer Motion for polished interactions
 
 ## 🛠️ Getting Started
 
@@ -61,7 +65,7 @@ my-portfolio/
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/NixonSee/My-Portfolio.git
 cd my-portfolio
 ```
 
@@ -77,30 +81,22 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-4. Set up the database:
-```bash
-npm run prisma:generate
-npm run prisma:push
-```
+## 📦 Available Scripts
 
-5. Run the development servers:
-```bash
-npm run dev
-```
-
-This will start:
-- Client on http://localhost:3000
-- Server on http://localhost:5000
-
-## Available Scripts
-
-### Root Directory
-
-- `npm run dev` - Run both client and server concurrently
+- `npm run dev` - Start development server on port 3000
 
 ## 📦 Available Scripts
 
 - `npm run dev` - Start development server on port 3000
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🚀 Deployment
+
+This is a static site that can be deployed to any hosting service:
+
+### Vercel (Recommended)
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
@@ -118,32 +114,63 @@ vercel
 ### Netlify
 ```bash
 npm run build
-# Drag and drop the 'dist' folder to Netlify
+# Deploy the 'dist' folder to Netlify
 ```
 
 ### GitHub Pages
 ```bash
 npm run build
-# Push the 'dist' folder to gh-pages branch
+# Deploy the 'dist' folder to gh-pages branch
 ```
 
-## 🎯 Key Features Breakdown
+## 🎯 Pages Overview
 
 ### Landing Page (Home)
-- Split hero section with animated 3D visuals
-- Rotating tech rings and orbiting particles
-- Floating technology keywords
-- Social media links
-- Tech stack showcase with holographic effects
-- Featured projects grid
+- **Hero Section** - Bold typography with your name as visual centerpiece
+- **Decorative Elements** - Animated dots and "Available for Work" badge
+- **Interactive Buttons** - `<ABOUT ME>` and `<MY WORK>` with hover animations
+- **Tech Stack** - Grid of skills with black border cards that invert on hover
+- **Featured Projects** - Project showcase with hover effects
 
 ### About Page
-- Professional experience timeline
-- Technical expertise grid
-- Achievements and education
-- Interactive animations
+- **Professional Journey** - Introduction card with icon
+- **Technical Expertise** - 4-column skills grid (Frontend, Backend, Database, Tools)
+- **Professional Experience** - Timeline of work experience
+- **Key Achievements** - Highlight cards with icons
 
-## 📝 License
+### Blog Pages
+- **Blog Listing** - Posts displayed in bordered cards
+- **Blog Post** - Individual post view with clean typography
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: Black (`#000000`)
+- **Background**: White (`#FFFFFF`)
+- **Grid**: Semi-transparent black (`rgba(0,0,0,0.05)`)
+
+### Typography
+- **Headings**: Bold, uppercase, high tracking
+- **Body**: Clean, readable with good contrast
+
+### Components
+- **Cards**: White background with 4px black borders
+- **Hover Effect**: Background inverts to black, text to white
+- **Icons**: Black icons that turn white on hover
+- **Buttons**: Bordered with scale and rotation animations
+
+## 📝 Customization
+
+### Adding Your Image
+Place your hero image in `public/hero-name.png` (the image with your name typography).
+
+### Updating Content
+- **Skills**: Edit `src/components/SkillsGrid.tsx`
+- **Projects**: Edit `src/components/sections/ProjectsSection.tsx`
+- **Experience**: Edit `src/pages/About.tsx`
+- **Social Links**: Update in `src/components/Navbar.tsx` and `src/components/Footer.tsx`
+
+## 📄 License
 
 MIT License - Feel free to use this as inspiration for your own portfolio!
 
@@ -151,66 +178,13 @@ MIT License - Feel free to use this as inspiration for your own portfolio!
 
 **Nixon See Kok Wai**
 - Full-Stack Developer
-- Portfolio: Coming soon
-- GitHub: [Your GitHub]
+- Email: nixonsee2006@gmail.com
+- GitHub: [@NixonSee](https://github.com/NixonSee)
 - LinkedIn: [Your LinkedIn]
 
 ---
 
-Built with ❤️ using React + Vite + TypeScript
-
-- **Content**: MDX for blog posts
-- **Validation**: Zod
-- **Deployment**: Vercel (recommended)
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+ installed
-- PostgreSQL database (local or remote)
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <your-repo-url>
-cd my-portfolio
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Set up environment variables:
-```bash
-cp .env .env.local
-```
-
-Edit `.env.local` and add your database connection string:
-```env
-DATABASE_URL="postgresql://username:password@localhost:5432/portfolio"
-```
-
-4. Set up the database:
-```bash
-npx prisma generate
-npx prisma db push
-```
-
-5. Run the development server:
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view your site.
-
-## Project Structure
-
-```
-my-portfolio/
-├── prisma/
+Built with ❤️ using React + Vite + TypeScript + Tailwind CSS
 │   └── schema.prisma          # Database schema
 ├── public/
 │   ├── images/                # Static images
