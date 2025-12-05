@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Grid background pattern */
+.grid-background {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --primary: 199 100% 50%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 283 61% 58%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 199 100% 50%;
+    --accent-foreground: 222 47% 11%;
+    --border: 217 33% 17%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-tech-blue/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-tech-blue/50;
+  }
+}
+
+@layer components {
+  /* Futuristic glassmorphism */
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-card {
+    @apply bg-white/5 border border-white/10 rounded-lg p-6 backdrop-blur-md;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(0, 217, 255, 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(0, 217, 255, 0.1);
+  }
+
+  /* Tech grid background */
+  .tech-grid {
+    background-image: 
+      linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-flow 20s linear infinite;
+  }
+
+  @keyframes grid-flow {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+  }
+
+  /* Gradient text with animation */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-tech-blue via-tech-purple to-tech-pink;
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+  }
+
+  /* Neon glow button */
+  .btn-neon {
+    @apply relative px-6 py-3 rounded-lg font-medium overflow-hidden;
+    @apply border border-tech-blue text-tech-blue;
+    @apply transition-all duration-300;
+    box-shadow: 
+      0 0 10px rgba(0, 217, 255, 0.3),
+      inset 0 0 10px rgba(0, 217, 255, 0.1);
+  }
+
+  .btn-neon:hover {
+    box-shadow: 
+      0 0 20px rgba(0, 217, 255, 0.6),
+      0 0 40px rgba(0, 217, 255, 0.3),
+      inset 0 0 20px rgba(0, 217, 255, 0.2);
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
+  }
+
+  /* Holographic effect */
+  .holographic {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 217, 255, 0.1) 0%,
+      rgba(181, 55, 242, 0.1) 25%,
+      rgba(255, 0, 107, 0.1) 50%,
+      rgba(0, 255, 148, 0.1) 75%,
+      rgba(0, 217, 255, 0.1) 100%
+    );
+    background-size: 300% 300%;
+    animation: holographic-shift 6s ease infinite;
+  }
+
+  @keyframes holographic-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Animated border */
+  .animated-border {
+    position: relative;
+    @apply rounded-lg;
+  }
+
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    @apply rounded-lg;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(0, 217, 255, 0.8),
+      rgba(181, 55, 242, 0.8),
+      rgba(255, 0, 107, 0.8),
+      transparent 70%
+    );
+    background-size: 300% 300%;
+    animation: border-glow 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .animated-border:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes border-glow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Pulse glow */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(0, 217, 255, 0.8);
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Particle background animation */
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: particle-float linear infinite;
+}
