@@ -3,13 +3,13 @@ import SkillsGrid from '../SkillsGrid'
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-32 relative">
+    <section id="skills" className="py-16 relative">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -17,16 +17,16 @@ export default function SkillsSection() {
             viewport={{ once: true }}
             className="text-5xl md:text-6xl font-black mb-6 text-black"
           >
-            TECH STACKS
+            HOW I BUILD A PROJECT
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-white max-w-2xl mx-auto"
+            className="text-lg text-black max-w-2xl mx-auto"
           >
-            Technologies and tools I use to bring ideas to life
+            My creative process from idea to deployment
           </motion.p>
         </motion.div>
 

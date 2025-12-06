@@ -4,34 +4,33 @@ import ProjectCard from '../ProjectCard'
 const projects = [
   {
     id: '1',
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory management, payment integration, and admin dashboard.',
-    url: 'https://example.com',
-    githubUrl: 'https://github.com',
-    tags: ['React', 'Node.js', 'TypeScript', 'Full-Stack']
+    title: 'Expense-Tracker',
+    description: 'A simple and responsive web app that lets users add, filter, and visualize their daily expenses.',
+    githubUrl: 'https://github.com/NixonSee/Expense-Tracker',
+    tags: ['HTML', 'CSS', 'JavaScript','JQuery']
   },
   {
     id: '2',
-    title: 'AI Chat Application',
-    description: 'Real-time chat app with AI-powered responses, built with WebSocket for instant messaging and OpenAI integration.',
-    url: 'https://example.com',
-    githubUrl: 'https://github.com',
-    tags: ['React', 'Node.js', 'API']
+    title: 'U.Defuse',
+    description: 'U.Defuse is an innovative hybrid game system that integrates physical card mechanics with real-time digital quiz challenges to create an interactive multiplayer experience.',
+    url: 'https://u-defuse.vercel.app',
+    githubUrl: 'https://github.com/NixonSee/U.Defuse',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Socket.IO', 'Node.js', 'Express.js', 'MySQL', 'JWT', 'Rest API']
   },
   {
     id: '3',
-    title: 'Task Management System',
-    description: 'Collaborative project management tool with Kanban boards, team collaboration, and progress tracking.',
-    githubUrl: 'https://github.com',
-    tags: ['React', 'TypeScript', 'Full-Stack']
+    title: 'AWSGen-AI',
+    description: 'A real-time disaster monitoring dashboard that visualizes global emergencies using live GDACS data.',
+    githubUrl: 'https://github.com/LeowJianYang/AWSGenAI-R',
+    tags: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Leaflet', 'GDACS API', 'Axios', 'AWS Bedrock Runtime']
   },
   {
     id: '4',
-    title: 'Weather Analytics Dashboard',
-    description: 'Interactive dashboard displaying weather patterns, forecasts, and historical data with beautiful visualizations.',
+    title: 'My-Portfolio',
+    description: 'A personal portfolio website to showcase my projects, skills, and experiences.',
     url: 'https://example.com',
-    githubUrl: 'https://github.com',
-    tags: ['React', 'TypeScript', 'API']
+    githubUrl: 'https://github.com/NixonSee/My-Portfolio',
+    tags: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion']
   },
   {
     id: '5',
