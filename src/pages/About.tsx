@@ -3,48 +3,42 @@ import { Code2, Rocket, Zap, Award, Calendar, Briefcase } from 'lucide-react'
 
 const experiences = [
   {
-    year: '2024',
-    title: 'Senior Full-Stack Developer',
-    company: 'Tech Innovation Inc.',
-    description: 'Leading development of enterprise applications using React, Node.js, and cloud technologies.',
+    year: '2020 - Present',
+    title: 'Part-Time Fiber Optic Technician',
+    company: 'REDSUN ENGINEERING SDN BHD',
+    description: 'Assisted in installing, maintaining, and troubleshooting fiber optic networks, gaining hands-on technical and problem-solving experience.',
   },
   {
-    year: '2022',
-    title: 'Full-Stack Developer',
-    company: 'Digital Solutions Co.',
-    description: 'Built scalable web applications and REST APIs, worked with cross-functional teams.',
-  },
-  {
-    year: '2020',
-    title: 'Frontend Developer',
-    company: 'Creative Studio',
-    description: 'Developed responsive user interfaces and implemented modern design systems.',
-  },
+    year: '2022 - 2023',
+    title: 'Part-Time Mathematics Tutor',
+    company: 'Eye Level',
+    description: 'Guided groups of primary and secondary students in mathematics, improving their understanding through structured lessons and clear explanations.',
+  }
 ]
 
 const achievements = [
   {
     icon: Award,
-    title: 'Open Source Contributor',
-    description: 'Active contributor to popular open-source projects with 500+ GitHub stars',
+    title: 'Great Malaysia AI Hackathon (2025)',
+    description: 'Developed an AI-powered disaster response mapping tool using React and AWS services to visualize rescue zones and improve response efficiency',
   },
   {
-    icon: Zap,
-    title: 'Performance Optimization',
-    description: 'Reduced application load time by 60% through advanced optimization techniques',
+    icon: Award,
+    title: 'DevMatch Web3 Hackathon (2025)',
+    description: 'Built a blockchain-based scholarship platform using Next.js, Solidity, and Scaffold-eth2, integrating smart contracts and IPFS for secure data handling',
   },
   {
-    icon: Rocket,
-    title: 'Project Delivery',
-    description: '20+ successful projects delivered on time and within budget',
+    icon: Award,
+    title: 'COMING SOON...',
+    description: '---',
   },
 ]
 
 const skills = {
-  'Frontend': ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
-  'Backend': ['Node.js', 'Express', 'Prisma', 'REST API', 'GraphQL'],
-  'Database': ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis'],
-  'Tools': ['Git', 'Docker', 'AWS', 'Vercel', 'CI/CD'],
+  'Frontend': ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'],
+  'Backend': ['Node.js', 'Express', 'REST API'],
+  'Database': ['PostgreSQL', 'MySQL'],
+  'Tools': ['Git', 'Vercel', 'Figma', 'Canva'],
 }
 
 export default function About() {
@@ -60,9 +54,6 @@ export default function About() {
           <h1 className="text-6xl md:text-8xl font-black mb-6 text-black uppercase tracking-tight">
             About Me
           </h1>
-          <p className="text-lg text-black max-w-3xl mx-auto font-semibold">
-            Software engineer dedicated to building clean, scalable solutions.
-          </p>
         </motion.div>
 
         {/* Introduction */}
@@ -77,16 +68,20 @@ export default function About() {
               <Code2 className="w-6 h-6 text-white group-hover:text-black transition-all" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-4 uppercase tracking-wide text-black group-hover:text-white transition-all">My Journey</h2>
+              <h2 className="text-3xl font-bold mb-4 uppercase tracking-wide text-black group-hover:text-white transition-all">My Journey</h2>
               <p className="text-black group-hover:text-white leading-relaxed mb-4 transition-all">
-                I'm a passionate software engineer with expertise in full-stack development. 
-                With years of experience building scalable web applications, I specialize in 
-                creating elegant solutions to complex problems.
+                I’m <b>Nixon See</b>, a starter pack developer who enjoys creating clean, simple, and meaningful digital experiences.
+                I started my coding journey during college times <b>[and that's where I started to get suffer as well]</b>, and since then I’ve explored everything from UI design to creating frontend websites then to backend development, I started to get to know more with React, TypeScript, and modern web tools.
+                I’m always curious, constantly learning, and eager to build things that make life easier or more enjoyable.
               </p>
-              <p className="text-black group-hover:text-white leading-relaxed transition-all">
-                My focus is on writing clean, maintainable code and staying current with the 
-                latest technologies. I believe in continuous learning and sharing knowledge 
-                with the developer community.
+              <p className="text-black group-hover:text-white leading-relaxed mb-4 transition-all">
+                Except for coding every day, I love to play badminton with friends, watch YouTube, and definitely games is also part of my daily dose of entertainment.
+              </p>
+              <p className="text-black group-hover:text-white leading-relaxed mb-6 transition-all">
+                <b>ONE DAY!! TRUST ME ONE DAY...,</b> I'm hoping that I can create an app which can shock the world <b>[BOOM]</b> with my unique ideas and with the help of AI coding. But I’m not that rushing, I’m just started to build up my foundation, improving my craft, and preparing for that moment. <b>[wait for my good news]</b> :D
+              </p>
+              <p className="text-black text-xs group-hover:text-white leading-relaxed mb-4 transition-all">
+                <b>I'm MALAYSIAN btw. 🇲🇾</b>
               </p>
             </div>
           </div>
@@ -100,7 +95,7 @@ export default function About() {
           className="mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-black mb-12 text-center text-black uppercase tracking-tight">
-            Technical Expertise
+            Technical Tools
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {Object.entries(skills).map(([category, items], index) => (
@@ -138,7 +133,7 @@ export default function About() {
           className="mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-black mb-12 text-center text-black uppercase tracking-tight">
-            Professional Experience
+            Work Experience
           </h2>
           <div className="space-y-6">
             {experiences.map((exp, index) => (

@@ -37,7 +37,7 @@ export default function Footer() {
             <h3 className="text-sm font-bold mb-3 uppercase tracking-wide text-black">Connect</h3>
             <div className="flex gap-2 justify-center">
               <a
-                href="https://github.com"
+                href="https://github.com/NixonSee"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 border-2 border-black bg-white hover:bg-black transition-all group"
@@ -46,7 +46,7 @@ export default function Footer() {
                 <Github className="w-4 h-4 text-black group-hover:text-white transition-all" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/nixon-see-a8b4a1277/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 border-2 border-black bg-white hover:bg-black transition-all group"

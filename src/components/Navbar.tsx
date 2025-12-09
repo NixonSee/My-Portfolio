@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import Logo from './Logo'
 
 const navLinks = [
   { name: 'HOME', path: '/' },
