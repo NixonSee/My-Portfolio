@@ -34,17 +34,10 @@ const projects = [
   },
   {
     id: '5',
-    title: 'Portfolio Generator',
-    description: 'SaaS platform that helps developers create stunning portfolio websites with customizable templates.',
-    url: 'https://example.com',
-    tags: ['React', 'Node.js', 'Full-Stack']
-  },
-  {
-    id: '6',
-    title: 'Code Snippet Manager',
-    description: 'Organize and share code snippets with syntax highlighting, tagging system, and search functionality.',
-    githubUrl: 'https://github.com',
-    tags: ['React', 'TypeScript']
+    title: '---',
+    description: '---',
+    url: '---',
+    tags: ['---']
   }
 ]
 
