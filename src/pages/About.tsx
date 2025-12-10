@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Code2, Rocket, Zap, Award, Calendar, Briefcase } from 'lucide-react'
+import { Code2, Award, Calendar, Briefcase } from 'lucide-react'
 
 const experiences = [
   {

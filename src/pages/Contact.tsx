@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { submitContact } from '../services/api'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,7 +13,8 @@ export default function Contact() {
     setStatus('loading')
 
     try {
-      await submitContact(formData)
+      // Simulate form submission (replace with actual API call when backend is ready)
+      await new Promise(resolve => setTimeout(resolve, 1000))
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {
