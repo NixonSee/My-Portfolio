@@ -28,7 +28,7 @@ const projects = [
     id: '4',
     title: 'My-Portfolio',
     description: 'A personal portfolio website to showcase my projects, skills, and experiences.',
-    url: 'https://example.com',
+    url: 'https://myportfolio-virid-theta-39.vercel.app/',
     githubUrl: 'https://github.com/NixonSee/My-Portfolio',
     tags: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion']
   },

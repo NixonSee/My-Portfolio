@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Code2, Award, Calendar, Briefcase } from 'lucide-react'
+import InteractiveGrid from '../components/InteractiveGrid'
 
 const experiences = [
   {
@@ -43,7 +44,7 @@ const skills = {
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white grid-background pt-20">
+    <InteractiveGrid className="min-h-screen bg-white pt-20">
       <div className="container mx-auto px-4 max-w-6xl py-16">
         {/* Header */}
         <motion.div
@@ -199,6 +200,6 @@ export default function About() {
           </div>
         </motion.div>
       </div>
-    </div>
+    </InteractiveGrid>
   )
 }
