@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Code, Sparkles, Zap, Terminal, Lightbulb, Rocket } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function Secret() {
   const [showRoadmap, setShowRoadmap] = useState(false)
   const [terminalInput, setTerminalInput] = useState('')
+  const [konamiActivated, setKonamiActivated] = useState(false)
+  const [showKonamiBadge, setShowKonamiBadge] = useState(false)
   const [terminalHistory, setTerminalHistory] = useState<Array<{ type: 'command' | 'output', text: string }>>([
     { type: 'command', text: '$ whoami' },
     { type: 'output', text: '> nixon' },
@@ -21,6 +23,52 @@ export default function Secret() {
       document.body.scrollTop = 0
     }, 0)
   }, [])
+
+  // === Konami Code Easter Egg ===
+    const konamiSequence = [
+        'ArrowUp','ArrowUp','ArrowDown','ArrowDown'
+    ]
+
+    const konamiProgress = useRef<string[]>([])
+    const audioRef = useRef<HTMLAudioElement | null>(null)
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            konamiProgress.current.push(e.key)
+
+            if (konamiProgress.current.length > konamiSequence.length) {
+            konamiProgress.current.shift()
+            }
+
+            if (
+            konamiProgress.current.join(',').toLowerCase() ===
+            konamiSequence.join(',').toLowerCase()
+            ) {
+            // Trigger Konami effects
+            setKonamiActivated(true)
+            setShowKonamiBadge(true)
+            
+            // Add message to terminal
+            setTerminalHistory(prev => [
+              ...prev,
+              { type: 'output', text: '> Developer instinct detected.' }
+            ])
+            
+            // Play music
+            if (audioRef.current) {
+              audioRef.current.play()
+            }
+            
+            // Reset screen glow after 1 second
+            setTimeout(() => setKonamiActivated(false), 1000)
+            
+            konamiProgress.current = []
+            }
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [])
 
   const executeCommand = (cmd: string) => {
     const command = cmd.toLowerCase().trim()
@@ -63,7 +111,28 @@ export default function Secret() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white pb-20 overflow-auto">
+    <div className={`min-h-screen bg-black text-white pb-20 overflow-auto transition-all duration-1000 ${konamiActivated ? 'shadow-[0_0_100px_50px_rgba(147,51,234,0.5)]' : ''}`}>
+      {/* Hidden Audio Element */}
+      <audio ref={audioRef} src="/konami-secret-audio.mp3" />
+      
+      {/* Konami Badge */}
+      <AnimatePresence>
+        {showKonamiBadge && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0, y: -50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: 'spring', duration: 0.5 }}
+            className="fixed top-24 right-4 z-50 bg-purple-600 border-2 border-yellow-400 px-4 py-2 rounded-lg flex items-center gap-2 shadow-lg"
+          >
+            <span className="text-2xl">🎮</span>
+            <div>
+              <p className="text-sm font-bold text-yellow-400">Achievement Unlocked!</p>
+              <p className="text-xs text-white">Konami Master</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="container mx-auto px-4 relative z-10 max-w-6xl pt-24">
 
         {/* Main Title */}
