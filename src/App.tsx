@@ -9,7 +9,7 @@ import Secret from './pages/Secret'
 function AppContent() {
   const navigate = useNavigate()
   const location = useLocation()
-  const [keySequence, setKeySequence] = useState('')
+  const [, setKeySequence] = useState('')
 
   // Scroll to top on route change
   useEffect(() => {
