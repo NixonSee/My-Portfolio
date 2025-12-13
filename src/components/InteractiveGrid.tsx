@@ -42,69 +42,63 @@ export default function InteractiveGrid({ children, className = '' }: Interactiv
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Draw grid lines
-      ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)'
-      ctx.lineWidth = 1
+      ctx.lineWidth = 2
 
       const cols = Math.ceil(canvas.width / gridSize)
       const rows = Math.ceil(canvas.height / gridSize)
 
-      // Vertical lines
+      // Vertical lines - draw each segment separately
       for (let i = 0; i <= cols; i++) {
         const x = i * gridSize
-
-        ctx.beginPath()
-        for (let j = 0; j <= rows; j++) {
-          const y = j * gridSize
+        
+        for (let j = 0; j < rows; j++) {
+          const y1 = j * gridSize
+          const y2 = (j + 1) * gridSize
           
-          // Calculate distance from mouse to this point
+          // Calculate distance from mouse to midpoint of this segment
+          const midY = (y1 + y2) / 2
           const dx = mousePos.current.x - x
-          const dy = mousePos.current.y - y
+          const dy = mousePos.current.y - midY
           const distance = Math.sqrt(dx * dx + dy * dy)
           
-          // Calculate displacement based on proximity
+          // Change color based on proximity
           const maxDistance = 150
-          const displacement = distance < maxDistance ? (1 - distance / maxDistance) * 25 : 0
+          const colorIntensity = distance < maxDistance ? (1 - distance / maxDistance) : 0
+          const alpha = 0.05 + colorIntensity * 0.6
+          ctx.strokeStyle = `rgba(0, 0, 0, ${alpha})`
           
-          // Apply displacement perpendicular to line direction (horizontally for vertical lines)
-          const offsetX = distance > 0 ? (dx / distance) * displacement : 0
-          
-          if (j === 0) {
-            ctx.moveTo(x + offsetX, y)
-          } else {
-            ctx.lineTo(x + offsetX, y)
-          }
+          ctx.beginPath()
+          ctx.moveTo(x, y1)
+          ctx.lineTo(x, y2)
+          ctx.stroke()
         }
-        ctx.stroke()
       }
 
-      // Horizontal lines
+      // Horizontal lines - draw each segment separately
       for (let i = 0; i <= rows; i++) {
         const y = i * gridSize
-
-        ctx.beginPath()
-        for (let j = 0; j <= cols; j++) {
-          const x = j * gridSize
+        
+        for (let j = 0; j < cols; j++) {
+          const x1 = j * gridSize
+          const x2 = (j + 1) * gridSize
           
-          // Calculate distance from mouse to this point
-          const dx = mousePos.current.x - x
+          // Calculate distance from mouse to midpoint of this segment
+          const midX = (x1 + x2) / 2
+          const dx = mousePos.current.x - midX
           const dy = mousePos.current.y - y
           const distance = Math.sqrt(dx * dx + dy * dy)
           
-          // Calculate displacement based on proximity
+          // Change color based on proximity
           const maxDistance = 150
-          const displacement = distance < maxDistance ? (1 - distance / maxDistance) * 25 : 0
+          const colorIntensity = distance < maxDistance ? (1 - distance / maxDistance) : 0
+          const alpha = 0.05 + colorIntensity * 0.6
+          ctx.strokeStyle = `rgba(0, 0, 0, ${alpha})`
           
-          // Apply displacement perpendicular to line direction (vertically for horizontal lines)
-          const offsetY = distance > 0 ? (dy / distance) * displacement : 0
-          
-          if (j === 0) {
-            ctx.moveTo(x, y + offsetY)
-          } else {
-            ctx.lineTo(x, y + offsetY)
-          }
+          ctx.beginPath()
+          ctx.moveTo(x1, y)
+          ctx.lineTo(x2, y)
+          ctx.stroke()
         }
-        ctx.stroke()
       }
 
       animationFrameId.current = requestAnimationFrame(animate)
